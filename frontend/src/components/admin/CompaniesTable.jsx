@@ -56,7 +56,7 @@ const CompaniesTable = () => {
           dispatch(setAllCompanies([]));
         }
       } catch (error) {
-        console.error("❌ Fetch error:");
+        console.error("❌ Fetch error:",error);
         toast.error("Failed to fetch companies.");
       }
     };
