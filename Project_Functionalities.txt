@@ -1,0 +1,54 @@
+HireSetGo Project - Functionalities Overview
+
+Backend Functionalities:
+1. User Management
+   - User registration with profile and resume upload
+   - User login and logout with JWT authentication
+   - Update user profile including skills and files
+
+2. Job Management
+   - Post new jobs with details like title, description, requirements, salary, location, etc.
+   - Retrieve all jobs with keyword search and filters
+   - Get job details by ID including applications
+   - Get jobs created by admin users
+
+3. Company Management
+   - Register new companies with logo upload
+   - Retrieve companies created by logged-in users
+   - Get company details by ID
+   - Update company details and logo
+   - Delete companies and related jobs
+
+4. Job Applications
+   - Apply for jobs
+   - Retrieve jobs applied by users
+   - Get applicants for a job
+   - Update application status (e.g., accepted, rejected)
+
+Frontend Functionalities:
+1. Authentication and User Profile
+   - User signup and login forms
+   - Profile viewing and updating including uploading profile picture and resume
+   - Protected routes for authenticated users and admins
+
+2. Job Browsing and Searching
+   - Browse and search jobs with filters (location, industry, salary)
+   - View latest jobs and job details
+   - Apply for jobs from job detail pages
+
+3. Application Tracking
+   - View applied jobs in a table format
+   - Track application status
+
+4. Admin Features
+   - Create, update, and delete companies
+   - Create, update, and delete jobs
+   - View applicants for jobs
+   - Manage users and companies via admin dashboard components
+
+5. UI and Navigation
+   - Responsive navigation bar with role-based links
+   - Various reusable UI components (buttons, cards, dialogs, tables, inputs)
+   - Pages like Home, Contact, Prep for additional content
+
+This overview summarizes the key functionalities of the HireSetGo full-stack job portal project.
