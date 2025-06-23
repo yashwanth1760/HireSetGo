@@ -1,4 +1,3 @@
-Here’s a clean and complete `README.md` for your **HireSetGo** job portal project, based on everything you've built:
 
 ---
 
