@@ -11,7 +11,7 @@ const useGetAllAdminJobs = () => {
   useEffect(() => {
     const getAllAdminJobs = async () => {
       try {
-        const res = await axios.get(`${JOB_API_END_POINT}job/getAdminJob`, {
+        const res = await axios.get(`${JOB_API_END_POINT}/job/getAdminJob`, {
           withCredentials: true,
         });
         if (res.data.success) {
