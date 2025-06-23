@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true })); // middleware parse url encoded
 app.use(express.static("public")); // middleware serve static files from public folder
 app.use(cookieParser()); // middleware parse cookie data to js obj
 const corsOptions = {
-    origin: ['http://localhost:5173', 'http://localhost:5174'],
+    origin: ['http://localhost:5173', 'http://localhost:5174','https://hiresetgo.vercel.app'],
     credentials: true,
 }
 app.use(cors(corsOptions)); // middleware enable cors for all routes

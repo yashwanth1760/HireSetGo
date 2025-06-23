@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { SetSingleJob } from "@/redux/jobSlice";
 import { toast } from "sonner";
+import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from "@/utils/constant";
 
 
 const JobDescription = () => {
@@ -25,7 +26,7 @@ const isApplied = singleJob?.applications?.some(app => app?.user?._id === user?.
   useEffect(() => {
     const fetchJob = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/job/getJobById/${jobId}`, {
+        const res = await axios.get(`${JOB_API_END_POINT}/job/getJobById/${jobId}`, {
           withCredentials: true,
         });
         if (res.data.success) {
@@ -42,7 +43,7 @@ const isApplied = singleJob?.applications?.some(app => app?.user?._id === user?.
   const handleApply = async () => {
     setIsApplying(true);
     try {
-      const res = await axios.get(`http://localhost:5000/api/application/applyJob/${jobId}`, {
+      const res = await axios.get(`${APPLICATION_API_END_POINT}/application/applyJob/${jobId}`, {
         withCredentials: true,
       });
 

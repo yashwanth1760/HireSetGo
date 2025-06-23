@@ -20,7 +20,7 @@ const Jobs = () => {
   useEffect(() => {
     const fetchAllJobs = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/job/getJob`, {
+        const res = await axios.get(`${JOB_API_END_POINT}/job/getJob`, {
           withCredentials: true,
         });
 

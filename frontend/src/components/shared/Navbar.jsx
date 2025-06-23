@@ -15,6 +15,7 @@ import axios from "axios";
 import { resetJobState } from "@/redux/jobSlice";
 import { resetCompany } from "@/redux/companySlice";
 import { resetApplicationState } from "@/redux/applicationSlice";
+import { USER_API_END_POINT } from "@/utils/constant";
 
 const Navbar = () => {
   const { user } = useSelector((store) => store.auth);
@@ -23,7 +24,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/user/logout`, {
+      const res = await axios.get(`${USER_API_END_POINT}/user/logout`, {
         withCredentials: true,
       });
       if (res.data.success) {

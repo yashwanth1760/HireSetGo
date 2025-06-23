@@ -13,6 +13,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { setAuthUser } from "@/redux/authSlice";
+import { USER_API_END_POINT } from "@/utils/constant";
 
 const UpdateProfileDialog = ({ open, setOpen }) => {
   const { user } = useSelector((store) => store.auth);
@@ -63,7 +64,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:5000/api/user/profile/update",
+        `${USER_API_END_POINT}/user/profile/update`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

@@ -15,6 +15,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentCompany, setAllCompanies } from "@/redux/companySlice";
+import { COMPANY_API_END_POINT } from "@/utils/constant";
 
 
 const UpdateCompany = () => {
@@ -38,7 +39,7 @@ const UpdateCompany = () => {
     const fetchCompany = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/company/getCompanyDetailsById/${id}`,
+          `${COMPANY_API_END_POINT}/company/getCompanyDetailsById/${id}`,
           { withCredentials: true }
         );
         if (res.data.status) {
@@ -81,7 +82,7 @@ const UpdateCompany = () => {
       if (logo) formData.append("logo", logo);
 
       const res = await axios.put(
-        `http://localhost:5000/api/company/updateCompany/${id}`,
+        `${COMPANY_API_END_POINT}/company/updateCompany/${id}`,
         formData,
         {
           withCredentials: true,
@@ -94,7 +95,7 @@ const UpdateCompany = () => {
       if (res.data.status) {
         toast.success("✅ Company updated successfully!");
         // Refresh all companies
-        const refreshed = await axios.get(`http://localhost:5000/api/company/getCompanyDetails`, {
+        const refreshed = await axios.get(`${COMPANY_API_END_POINT}/company/getCompanyDetails`, {
           withCredentials: true,
         });
         if (refreshed.data.status) {

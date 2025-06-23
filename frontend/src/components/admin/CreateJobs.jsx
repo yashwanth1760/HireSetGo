@@ -15,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
 import { setAllCompanies } from "@/redux/companySlice";
+import { COMPANY_API_END_POINT, JOB_API_END_POINT } from "@/utils/constant";
 
 const CreateJobs = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const CreateJobs = () => {
     const fetchCompanies = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/company/getCompanyDetails`,
+          `${COMPANY_API_END_POINT}/company/getCompanyDetails`,
           {
             withCredentials: true,
           }
@@ -90,7 +91,7 @@ const CreateJobs = () => {
     }
     try {
       setLoading(true);
-      const res = await axios.post(`http://localhost:5000/api/job/post`, input, {
+      const res = await axios.post(`${JOB_API_END_POINT}/job/post`, input, {
         withCredentials: true,
         headers: {
           "Content-Type": "application/json",

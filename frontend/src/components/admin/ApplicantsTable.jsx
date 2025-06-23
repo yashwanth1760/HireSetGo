@@ -27,6 +27,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { setApplicants } from "@/redux/applicationSlice";
+import { APPLICATION_API_END_POINT } from "@/utils/constant";
 
 
 const ApplicantsTable = () => {
@@ -44,7 +45,7 @@ const ApplicantsTable = () => {
     const fetchAllApplicants = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/application/getApplicants/${id}`,
+          `${APPLICATION_API_END_POINT}/application/getApplicants/${id}`,
           { withCredentials: true }
         );
         if (res.data.success) {
@@ -64,7 +65,7 @@ const ApplicantsTable = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/api/application/updateStatus/${selectedApplicantId}`,
+        `${APPLICATION_API_END_POINT}/application/updateStatus/${selectedApplicantId}`,
         { status: statusToSend },
         { withCredentials: true }
       );
@@ -78,7 +79,7 @@ const ApplicantsTable = () => {
 
         // ✅ Refetch applicants to reflect updated status
         const refreshed = await axios.get(
-          `http://localhost:5000/api/application/getApplicants/${id}`,
+          `${APPLICATION_API_END_POINT}/application/getApplicants/${id}`,
           { withCredentials: true }
         );
         if (refreshed.data.success) {

@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setApplicants } from "@/redux/applicationSlice";
 import store from "@/redux/store";
+import { APPLICATION_API_END_POINT } from "@/utils/constant";
 
 const AdminViewApplicants = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ const AdminViewApplicants = () => {
     const fetchAllApplicants = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/application/getApplicants/${id}`,
+          `${APPLICATION_API_END_POINT}/application/getApplicants/${id}`,
           {
             withCredentials: true,
           }
