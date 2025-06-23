@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser, setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 import useGetAllJobs from "@/hooks/useGetAllJobs";
+import { USER_API_END_POINT } from "@/utils/constant";
 
 const Signup = () => {
   useEffect(() => {
@@ -57,7 +58,7 @@ const Signup = () => {
     }
     try {
       dispatch(setLoading(true));
-      const res = await axios.post(`http://localhost:5000/api/user/register`, formData, {
+      const res = await axios.post(`${USER_API_END_POINT}/user/register`, formData, {
         //This sends a POST request to the backend API (typically to register a user) and waits for the response. axios is a popular JavaScript library used to make HTTP requests from the browser or Node.js.
         headers: { "Content-Type": "multipart/form-data" }, // ells the server how the data is encoded. multipart/form-data is necessary for file uploads. Axios sets this automatically when you send a FormData object — but it’s fine to declare it manually.
         withCredentials: true, //This tells the browser to include credentials (like cookies, JWT tokens in cookies, etc.) in cross-origin requests.

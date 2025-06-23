@@ -4,6 +4,7 @@ import JobCard from "./JobCard";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setAllJobs, setSearchQuery } from "@/redux/jobSlice";
+import { JOB_API_END_POINT } from "@/utils/constant";
 
 const Browse = () => {
   const searchedQuery = useSelector((store) => store.job.searchQuery);
@@ -13,7 +14,7 @@ const Browse = () => {
     const fetchAllSearchedJobs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/job/getJob?keyword=${searchedQuery}`,
+          `${JOB_API_END_POINT}/job/getJob?keyword=${searchedQuery}`,
           { withCredentials: true }
         );
 

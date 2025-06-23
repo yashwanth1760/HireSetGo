@@ -1,4 +1,5 @@
 import { SetSingleCompany } from "@/redux/companySlice";
+import { COMPANY_API_END_POINT } from "@/utils/constant";
 
 import axios from "axios";
 import React, { useEffect } from "react";
@@ -13,7 +14,7 @@ const useGetCompanyById = (id) => {
     const fetchCompanyById = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/company/getCompanyDetailsById/${id}`,
+          `${COMPANY_API_END_POINT}/company/getCompanyDetailsById/${id}`,
           { withCredentials: true }
         );
         if (res.data.status) {

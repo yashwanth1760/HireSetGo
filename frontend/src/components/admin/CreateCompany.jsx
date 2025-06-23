@@ -8,6 +8,7 @@ import axios from "axios";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
 import { setAllCompanies } from "@/redux/companySlice";
+import { COMPANY_API_END_POINT } from "@/utils/constant";
 
 const CreateCompany = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const CreateCompany = () => {
       formData.append("logo", logo);
 
       const res = await axios.post(
-        `http://localhost:5000/api/company/registerCompany`,
+        `${COMPANY_API_END_POINT}/company/registerCompany`,
         formData,
         {
           withCredentials: true,
@@ -68,7 +69,7 @@ const CreateCompany = () => {
 
         // Refresh list
         const refreshed = await axios.get(
-          `http://localhost:5000/api/company/getCompanyDetails`,
+          `${COMPANY_API_END_POINT}/company/getCompanyDetails`,
           {
             withCredentials: true,
           }

@@ -1,7 +1,9 @@
-export const USER_API_END_POINT="http://localhost:5000/api/user";
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
-export const JOB_API_END_POINT="http://localhost:5000/api/job"
+export const USER_API_END_POINT=`${BASE_URL}`;
 
-export const APPLICATION_API_END_POINT="http://localhost:5000/api/application"
+export const JOB_API_END_POINT= `${BASE_URL}`;
 
-export const COMPANY_API_END_POINT="http://localhost:5000/api/company"
+export const APPLICATION_API_END_POINT=`${BASE_URL}`;
+
+export const COMPANY_API_END_POINT=`${BASE_URL}`;

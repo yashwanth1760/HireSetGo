@@ -11,6 +11,7 @@ import {
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setAllUserJobs } from "@/redux/jobSlice";
+import { APPLICATION_API_END_POINT } from "@/utils/constant";
 
 const AppliedJobTable = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const AppliedJobTable = () => {
     const fetchAllUserJobs = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/application/getAppliedJobs`,
+          `${APPLICATION_API_END_POINT}/application/getAppliedJobs`,
           {
             withCredentials: true,
           }

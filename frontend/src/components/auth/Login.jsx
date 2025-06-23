@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAuthUser, setLoading } from "@/redux/authSlice";
 import { Loader2 } from "lucide-react";
 import store from "@/redux/store";
+import { USER_API_END_POINT } from "@/utils/constant";
 
 const Login = () => {
   useEffect(() => {
@@ -42,7 +43,7 @@ const Login = () => {
     try {
       dispatch(setLoading(true));
       const res = await axios.post(
-        `http://localhost:5000/api/user/login`,
+        `${USER_API_END_POINT}/user/login`,
         payload,
         {
           headers: { "Content-Type": "application/json" },

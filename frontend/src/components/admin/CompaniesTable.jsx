@@ -24,6 +24,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "../ui/dialog";
+import { COMPANY_API_END_POINT } from "@/utils/constant";
 
 const CompaniesTable = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const CompaniesTable = () => {
     const fetchCompanies = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/company/getCompanyDetails`,
+          `${COMPANY_API_END_POINT}/company/getCompanyDetails`,
           {
             withCredentials: true,
           }
